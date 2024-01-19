@@ -103,27 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Set a maximum width for the game container
         gameContainer.style.width = `${containerWidth}px`;
         gameContainer.style.height = `${containerWidth * aspectRatio}px`;
-
-        // Update tile size
-        const tileSize = containerWidth * 0.2;
-        const tiles = document.querySelectorAll('.tile');
-        tiles.forEach(tile => {
-            tile.style.width = `${tileSize}px`;
-            tile.style.height = `${tileSize}px`;
-        });
-
-        // You may also want to adjust the font size of the tile numbers dynamically
-        const tileNumberFontSize = Math.min(Math.floor(tileSize / 2), 20);
-        document.styleSheets[0].insertRule(`.tile-number { font-size: ${tileNumberFontSize}px; }`, 0);
-        // Add other styling adjustments as needed
-
-        // Update the board size dynamically based on screen width
-        board.forEach((row, i) => {
-            row.forEach((col, j) => {
-                const tile = document.querySelector(`.tile[data-row="${i}"][data-col="${j}"]`);
-                positionTile(tile, i, j,tileSize);
-            });
-        });
     }
 
     // Call the function to update board size initially
@@ -153,10 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const tileValue = board[i][j];
                 const tile = document.createElement('div');
                 tile.className = `tile tile-${tileValue}`;
-
-                // Create a container for the icon and number
-                // const contentContainer = document.createElement('div');
-                // contentContainer.className = 'content-container';
 
                 // Set the background icon using the Font Awesome class
                 if (tileValue !== 0) {
