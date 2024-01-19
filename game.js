@@ -513,12 +513,12 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         // const serializedState = JSON.stringify(gameState);
-        localStorage.setItem('2048GameState', JSON.stringify(gameState));
+        localStorage.setItem('2048ClassicGameState', JSON.stringify(gameState));
     }
 
     // Function to load the game state from local storage
     function loadGameState() {
-        const serializedState = localStorage.getItem('2048GameState');
+        const serializedState = localStorage.getItem('2048ClassicGameState');
 
         try {
             if (serializedState) {
@@ -627,7 +627,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // condition to check if we any localstorage item
-    if (localStorage.getItem('2048GameState')) {
+    if (localStorage.getItem('2048ClassicGameState')) {
         loadGameState();
     } else {
         // If no game state is found, start a new game
