@@ -117,22 +117,11 @@ document.addEventListener('DOMContentLoaded', () => {
         document.styleSheets[0].insertRule(`.tile-number { font-size: ${tileNumberFontSize}px; }`, 0);
         // Add other styling adjustments as needed
 
-        // Inside the positionTile function, adjust the margin
-        function positionTile(tile, row, col) {
-            if (tile) {
-                const tileMargin = containerWidth * 0;
-                const top = row * (tileSize + tileMargin);
-                const left = col * (tileSize + tileMargin);
-                tile.style.top = `${top}px`;
-                tile.style.left = `${left}px`;
-            }
-        }
-
         // Update the board size dynamically based on screen width
         board.forEach((row, i) => {
             row.forEach((col, j) => {
                 const tile = document.querySelector(`.tile[data-row="${i}"][data-col="${j}"]`);
-                positionTile(tile, i, j);
+                positionTile(tile, i, j,tileSize);
             });
         });
     }
